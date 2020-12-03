@@ -1,0 +1,39 @@
+.App-header {
+  flex: 1;
+  padding: 10px;
+  background:  linear-gradient(to right, rgb(122,84,242), rgb(184,64,239));
+  color: white;
+  border-radius: 0 0 10px 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+.App-header h1 {
+  font-size: 28px;
+  font-weight: normal;
+}
+
+.App-header p {
+  font-size: 16px;
+}
+
+.m-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 10px;
+  border: none;
+  outline: none;
+  background: none;
+  font-weight: bold;
+  color: white;
+  opacity: .5;
+  transition: .5s;
+}
+
+.m-btn:focus {
+  opacity: 1;
+}

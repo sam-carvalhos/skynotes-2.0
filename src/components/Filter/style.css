@@ -1,0 +1,14 @@
+.select {
+  flex: 1;
+  margin-top: 10px;
+}
+
+.filter-todos {
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  background: white;
+  color: #a0a0a0;
+  padding: 5px;
+}

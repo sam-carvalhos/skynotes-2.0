@@ -1,12 +1,13 @@
 import React from 'react';
 import './style.css';
 
-const Details = ({ showDetails, hideDetails, title, description, timesTemp, showForm, todo, todos, setTodos }) => {
+const Details = ({ showDetails, hideDetails, title, description, timesTemp, showForm, todo, todos, setTodos, setDet }) => {
   
   const showFormHandler = (e) => {
     e.preventDefault();
     setTodos(todos.filter((el) => el.id !== todo.id));
     showForm(e);
+    setDet(true);
   };
   
   return (

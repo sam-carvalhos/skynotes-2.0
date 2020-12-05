@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css';
 
-const Form = ({ showForm, hideForm, setInputTitle, setInputDesc, todos, setTodos, title, description, message, setMessage, hideDetails }) => {
+const Form = ({ showForm, hideForm, setInputTitle, setInputDesc, todos, setTodos, title, description, message, setMessage, hideDetails, det }) => {
   const inputTitleHandler = (e) => {
     const titleValue = e.target.value;
     setInputTitle(titleValue);
@@ -50,6 +50,44 @@ const Form = ({ showForm, hideForm, setInputTitle, setInputDesc, todos, setTodos
     hideDetails(e);
   };
   
+  
+  const hideFormHandler = (e) => {
+    e.preventDefault();
+    
+    if(title && description && det) {
+      var day = new Date().getDate();
+      var mes = new Date().getMonth() + 1;
+      var year = new Date().getFullYear();
+      var hr = new Date().getHours();
+      var min = new Date().getMinutes();
+      var sec = new Date().getSeconds();
+  
+      var times = {
+       day,
+       mes,
+       year,
+       hr,
+       min,
+       sec
+      };
+      
+      setTodos([...todos,{
+        title: title,
+        description: description,
+        timesTemp: times,
+        completed: false,
+        id: Math.random() * 1000
+      }]);
+      hideDetails(e);
+    }
+    
+    setInputTitle('');
+    setInputDesc('');
+    hideForm(e);
+  };
+  
+  
+  
   return (
     <form className={showForm ? "form display-block" : "form display-none"}>
       <div className="form-container">
@@ -74,7 +112,7 @@ const Form = ({ showForm, hideForm, setInputTitle, setInputDesc, todos, setTodos
           Salvar
         </button>
         <button
-          onClick={hideForm}
+          onClick={hideFormHandler}
           className="hide-button">
           X
         </button>

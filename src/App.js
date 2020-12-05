@@ -20,6 +20,7 @@ class App extends React.Component {
       timesTemps: {},
       getTodo: {},
       message: false,
+      det: false,
       name: JSON.parse(localStorage.getItem('name')) || '',
       logged: JSON.parse(localStorage.getItem('logged')) || false,
       todos: []
@@ -55,6 +56,7 @@ class App extends React.Component {
   showForm = (e) => {
     e.preventDefault();
     this.setState({ showForm: true });
+    this.setDet(false);
   };
   
   hideForm = (e) => {
@@ -98,6 +100,10 @@ class App extends React.Component {
     this.saveLocalTodos(todos);
   };
   
+  setDet = (det) => {
+    this.setState({ det: det });
+  };
+  
   saveLocalTodos = (todos) => {
     localStorage.setItem('todos', JSON.stringify(todos));
   };
@@ -135,6 +141,7 @@ class App extends React.Component {
           message={this.state.message}
           setMessage={this.setMessage}
           hideDetails={this.hideDetails}
+          det={this.state.det}
         />
         <button
           className="plus-button"
@@ -159,6 +166,7 @@ class App extends React.Component {
           showForm={this.showForm}
           todo={this.state.todo}
           setTodos={this.setTodos}
+          setDet={this.setDet}
         />
       </div>
     );
